@@ -1,0 +1,86 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background-color: #111;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+#info {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 15px;
+  justify-content: center;
+  margin: auto;
+}
+
+.boton {
+  width: 100px;
+  height: 100px;
+  background-color: #444;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.2em;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.boton.activo {
+  background-color: yellow;
+  color: black;
+  animation: parpadeo 0.8s infinite;
+}
+
+.boton.correcto {
+  animation: rebote 0.3s;
+}
+
+.boton.incorrecto {
+  animation: sacudida 0.3s;
+}
+
+#inicioBtn {
+  margin-top: 30px;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  background-color: #0a6;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#inicioBtn:hover {
+  background-color: #0d8;
+}
+
+/* Animaciones */
+@keyframes parpadeo {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes rebote {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes sacudida {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

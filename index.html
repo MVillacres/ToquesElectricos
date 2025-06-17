@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toques Eléctricos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>🔌 Toques Eléctricos</h1>
+  <div id="info">
+    <span id="puntos">Puntos: 0</span>
+    <span id="tiempo">Tiempo: 20</span>
+  </div>
+
+  <div id="grid"></div>
+
+  <button id="inicioBtn">Iniciar Juego</button>
+
+  <h2>🏆 Ranking</h2>
+  <ul id="rankingLista"></ul>
+
+  <audio id="sonidoAcierto" src="assets/sonido-acierto.mp3" preload="auto"></audio>
+  <audio id="sonidoError" src="assets/sonido-error.mp3" preload="auto"></audio>
+  <audio id="sonidoInicio" src="assets/sonido-inicio.mp3" preload="auto"></audio>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
