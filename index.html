@@ -17,8 +17,19 @@
 
   <button id="inicioBtn">Iniciar Juego</button>
 
-  <h2>🏆 Ranking</h2>
-  <ul id="rankingLista"></ul>
+  <section id="ranking">
+  <h2>🏆 Top 10 Jugadores</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody id="rankingLista"></tbody>
+  </table>
+  </section>
 
   <audio id="sonidoAcierto" src="assets/sonido-acierto.mp3" preload="auto"></audio>
   <audio id="sonidoError" src="assets/sonido-error.mp3" preload="auto"></audio>

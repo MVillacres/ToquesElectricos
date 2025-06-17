@@ -109,7 +109,6 @@ function terminarJuego() {
       top5.forEach((jugador, i) => {
         mensaje += `${i + 1}. ${jugador.nombre}: ${jugador.puntos} pts\n`;
       });
-      alert(mensaje);
     });
   }
 }
@@ -119,11 +118,15 @@ function mostrarRankingEnPantalla() {
   if (!lista || typeof obtenerRanking !== "function") return;
 
   obtenerRanking().then(top10 => {
-    lista.innerHTML = ""; 
+    lista.innerHTML = "";
     top10.forEach((jugador, i) => {
-      const item = document.createElement("li");
-      item.textContent = `${i + 1}. ${jugador.nombre}: ${jugador.puntos} pts`;
-      lista.appendChild(item);
+      const fila = document.createElement("tr");
+      fila.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${jugador.nombre}</td>
+        <td>${jugador.puntos}</td>
+      `;
+      lista.appendChild(fila);
     });
   });
 }

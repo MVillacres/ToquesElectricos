@@ -65,6 +65,35 @@ h1 {
   background-color: #0d8;
 }
 
+#ranking {
+  margin-top: 40px;
+  text-align: center;
+}
+
+#ranking table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 80%;
+  max-width: 400px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+#ranking th, #ranking td {
+  padding: 10px;
+  border: 1px solid #444;
+}
+
+#ranking th {
+  background-color: #444;
+  color: #ff0;
+}
+
+#ranking tr:nth-child(even) {
+  background-color: #333;
+}
+
 /* Animaciones */
 @keyframes parpadeo {
   0%, 100% { opacity: 1; }
