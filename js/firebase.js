@@ -10,7 +10,7 @@ import {
 const firebaseConfig = {
   apiKey: "AIzaSyCoqM0tpAjWnYlaw2bbFcifbzGhH0k3B6c",
   authDomain: "toqueselectrico-92438.firebaseapp.com",
-  databaseURL: "https://toqueselectrico-92438-default-rtdb.firebaseio.com",
+  databaseURL: "https://toqueselectrico-92438-default-rtdb.firebaseio.com/",
   projectId: "toqueselectrico-92438",
   storageBucket: "toqueselectrico-92438.appspot.com",
   messagingSenderId: "884213774029",
