@@ -21,7 +21,8 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 window.guardarPuntaje = function (nombre, puntos) {
-  set(ref(db, 'puntajes/' + nombre), {
+  const nuevaEntrada = push(ref(db, 'puntajes'));
+  set(nuevaEntrada, {
     nombre: nombre,
     puntos: puntos,
     tiempo: Date.now()

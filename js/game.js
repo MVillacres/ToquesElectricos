@@ -103,14 +103,6 @@ function terminarJuego() {
     guardarPuntaje(nombre, puntos);
   }
   mostrarRankingEnPantalla();
-  if (typeof obtenerRanking === "function") {
-    obtenerRanking().then(top5 => {
-      let mensaje = "🏆 Top 5 jugadores:\n\n";
-      top5.forEach((jugador, i) => {
-        mensaje += `${i + 1}. ${jugador.nombre}: ${jugador.puntos} pts\n`;
-      });
-    });
-  }
 }
 
 function mostrarRankingEnPantalla() {
@@ -133,4 +125,7 @@ function mostrarRankingEnPantalla() {
 
 crearBotones();
 inicioBtn.addEventListener("click", iniciarJuego);
-mostrarRankingEnPantalla();
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarRankingEnPantalla();
+});
+
