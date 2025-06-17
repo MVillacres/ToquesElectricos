@@ -38,7 +38,6 @@ h1 {
 .boton.activo {
   background-color: yellow;
   color: black;
-  animation: parpadeo 0.8s infinite;
 }
 
 .boton.correcto {
@@ -92,12 +91,6 @@ h1 {
 
 #ranking tr:nth-child(even) {
   background-color: #333;
-}
-
-/* Animaciones */
-@keyframes parpadeo {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
 }
 
 @keyframes rebote {

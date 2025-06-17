@@ -9,13 +9,14 @@ const sonidoInicio = document.getElementById("sonidoInicio");
 
 let botones = [];
 let puntos = 0;
-let tiempo = 20;
+let tiempo = 30;
+let tiempoTotal = 30;
 let juegoActivo = false;
 let encendido = -2;
 let intervalo;
 let cuentaRegresiva;
 
-let velocidad = 450;
+let velocidad = 700;
 
 function crearBotones() {
   for (let i = 0; i < 9; i++) {
@@ -36,7 +37,7 @@ function manejarToque(indice, btn) {
     sonidoAcierto.play();
     btn.classList.add("correcto");
   } else {
-    puntos -= 2;
+    puntos -= 0;
     sonidoError.currentTime = 0;
     sonidoError.play();
     btn.classList.add("incorrecto");
@@ -55,36 +56,35 @@ function encenderAleatorio() {
 }
 
 function actualizarVelocidad() {
-  if (tiempo <= 5) return 175;
-  if (tiempo <= 10) return 275;
-  if (tiempo <= 15) return 375;
-  return 475;
+  const tiempoTranscurrido = tiempoTotal - tiempo;
+  let nuevaVelocidad = 700 - (tiempoTranscurrido * 10);
+  return Math.max(nuevaVelocidad, 200);
+}
+
+function loopJuego() {
+  if (!juegoActivo) return;
+
+  encenderAleatorio();
+  velocidad = actualizarVelocidad();
+  clearTimeout(intervalo);
+  intervalo = setTimeout(loopJuego, velocidad);
 }
 
 function iniciarJuego() {
   sonidoInicio.play();
   puntos = 0;
-  tiempo = 20;
+  tiempo = 30;
   juegoActivo = true;
   puntosEl.textContent = "Puntos: 0";
-  tiempoEl.textContent = "Tiempo: 20";
+  tiempoEl.textContent = "Tiempo: 30";
   inicioBtn.disabled = true;
 
-  encenderAleatorio();
   velocidad = actualizarVelocidad();
-
-  intervalo = setInterval(() => {
-    encenderAleatorio();
-    clearInterval(intervalo);
-    velocidad = actualizarVelocidad();
-    intervalo = setInterval(() => encenderAleatorio(), velocidad);
-  }, velocidad);
-
+  loopJuego();
   cuentaRegresiva = setInterval(() => {
     tiempo--;
     tiempoEl.textContent = `Tiempo: ${tiempo}`;
-    velocidad = actualizarVelocidad();
-    if (tiempo === 0) {
+    if (tiempo <= 0) {
       terminarJuego();
     }
   }, 1000);
